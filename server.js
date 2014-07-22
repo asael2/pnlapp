@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 var init = require('./config/init')(),
-	config = require('./config/config'),
-	mongoose = require('mongoose');
+    config = require('./config/config'),
+    mongoose = require('mongoose');
 
 /**
  * Main application entry file.
@@ -27,4 +27,4 @@ app.listen(config.port);
 exports = module.exports = app;
 
 // Logging initialization
-console.log('MEAN.JS application started on port ' + config.port);
+console.log('PNLAPP iniciada en puerto: ' + config.port);
