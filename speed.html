@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Speed</title>
+
+	<style>
+	#comment {
+    display: none;
+}
+
+#reader {
+    padding: 20px;
+    border: 1px solid black;
+    width: 200px;
+    font-size: 20pt;
+    font-family: verdana;
+    margin-bottom: 30px;
+    position: relative;
+    height: 15px;
+    line-height: 15px;
+}
+
+#reader::before, #reader::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -1px;
+    height: 10px;
+    background-color: black;
+    width: 2px;
+    top: 0;
+}
+
+#reader::after {
+    top: auto;
+    bottom: 0;
+}
+
+#word {
+    position: absolute;
+}
+
+.highlight {
+    color: #c00;
+}
+	</style>
+
+</head>
+<body>
+	
+
+
+
+<p id="comment">(Editor’s note: purely for reasons of length and readability, this article is the first of two parts. This one focuses on the Bootstrap family, more will be profiled in the second part.)
+
+As the Web matures, and the range of mobile devices. we use to access it rapidly grows, our jobs as web designers and developers get considerably more complicated.
+
+A decade ago things were much simpler. Then, it was almost certain that most of our users were visiting our sites while sitting at their desk, looking at a large monitor. 960 pixels was more or less considered as a good width for a web page. Our main care was dealing with the dozen or so desktop browsers and jumping through a few extra browser hacks to support quirky old versions of Internet Explorer. But now, with the boom of handheld electronic devices in the last five to six years, everything has changed. We’ve seen the introduction of smartphones and tablets of all different sizes, eReaders, browsers on TVs and many others. The diversity is only going to increase each day.
+
+Sks.</p>
+
+<div id="reader">
+    <div id="word"></div>
+</div>
+<input type="number" value="250" id="wpm">
+<button id="start">Start</button>	
+
+<script>
+	// I LOVE GLOBALS.
+var buttonEl = document.querySelector('#start');
+var commentEl = document.querySelector('#comment');
+var wpmEl = document.querySelector('#wpm');
+var readerEl = document.querySelector('#reader');
+var currentTimer = null;
+
+function processWord(word){
+    var center = Math.floor(word.length / 2);
+    var letters = word.split('');
+    var result = [];
+    return letters.map(function(letter, idx){
+        if (idx === center){
+            return '<span class="highlight">' + letter + '</span>';
+        }
+        return letter;
+    }).join('');
+}
+
+function positionWord(){
+    var wordEl = readerEl.firstElementChild;
+    var highlight = wordEl.firstElementChild;
+    
+    var centerOffsetX = (highlight.offsetWidth / 2) + highlight.offsetLeft;
+    var centerOffsetY = (highlight.offsetHeight / 2) + highlight.offsetTop;
+    
+    wordEl.style.left = ((readerEl.clientWidth / 2) - centerOffsetX) + 'px';
+    wordEl.style.top = ((readerEl.clientHeight / 2) - centerOffsetY) + 'px';
+}
+
+buttonEl.addEventListener('click', function(){
+    var words = commentEl.textContent.split(/\s+/).map(processWord);
+    var currentWord = 0;
+    var delay = 60000 / parseInt(wpmEl.value, 10);
+    
+    clearTimeout(currentTimer);
+    
+    var displayNextWord = function(){
+        var word = words[currentWord++];
+        // WTB> nlp.js...
+        var hasPause = /^\(|[,\.\)]$/.test(word);
+        
+        // XSS?! :(.
+        readerEl.firstElementChild.innerHTML = word;
+        positionWord();
+        
+        if (currentWord !== words.length){
+            currentTimer = setTimeout(displayNextWord, delay * (hasPause ? 3 : 1));
+        }
+    };
+    
+    displayNextWord();
+});
+</script>
+</body>
+</html>

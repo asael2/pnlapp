@@ -1,22 +1,59 @@
 <section data-ng-controller="ArticlesController">
 	<div class="page-header">
-		<h1>New Article</h1>
+		<h1>Nuevo Articulo</h1>
 	</div>
 	<div class="col-md-12">
 		<form class="form-horizontal" data-ng-submit="create()" novalidate>
 			<fieldset>
 				<div class="form-group">
-					<label class="control-label" for="title">Title</label>
+					<label class="control-label" for="title">Tiulo</label>
 					<div class="controls">
-						<input type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
+						<input type="text" data-ng-model="title" id="title" class="form-control" placeholder="Titulo" required>
 					</div>
 				</div>
+				
 				<div class="form-group">
-					<label class="control-label" for="content">Content</label>
+					<label class="control-label" for="content">Contenido</label>
 					<div class="controls">
-						<textarea data-ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+						<textarea data-ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Contenido"></textarea>
 					</div>
 				</div>
+				
+				<!-- ArtType -->
+				<div class="form-group" >
+			        <label>Tipo de articulo: </label>
+			        <br>
+					<label> <input type="radio" name="articleType" data-ng-model="arType" value="audio"> Audio </label>
+			    	<label> <input type="radio" name="articleType" data-ng-model="arType" value="texto" checked="true"> Texto</label>
+			        <label> <input type="radio" name="articleType" data-ng-model="arType" value="video"> Video</label>
+				</div>
+
+				<!-- Skills -->
+		        <div class="form-group">
+		            
+		            <label mean-token="'create-skills'" class="col-md-3 control-label">Skills value</label>
+		                <ul class="list-inline">   
+		                    <li> <input name="am" type="number" class="" data-ng-model="skills.am" id="skills_am" placeholder="Amigos">   </li>   
+		                    <li> <input name="ar" type="number" class="" data-ng-model="skills.ar" id="skills_ar" placeholder="Amor">   </li>   
+		                    <li> <input name="cp" type="number" class="" data-ng-model="skills.cp" id="skills_cp" placeholder="Creciemiento personal"> </li> 
+		                    <li> <input name="di" type="number" class="" data-ng-model="skills.di" id="skills_di" placeholder="Dinero">   </li>   
+		                    <li> <input name="en" type="number" class="" data-ng-model="skills.en" id="skills_en" placeholder="Entorno">   </li>   
+		                    <li> <input name="fa" type="number" class="" data-ng-model="skills.fa" id="skills_fa" placeholder="Familia">   </li> 
+		                    <li> <input name="oc" type="number" class="" data-ng-model="skills.oc" id="skills_oc" placeholder="Ocio">   </li>   
+		                    <li> <input name="sa" type="number" class="" data-ng-model="skills.sa" id="skills_sa" placeholder="Salud">   </li>   
+		                    <li> <input name="tr" type="number" class="" data-ng-model="skills.tr" id="skills_tr" placeholder="Trabajo">   </li>
+		                    <li> <input name="otr" type="number" class="" data-ng-model="skills.otr" id="skills_otr" placeholder="Otro">   </li>
+		                </ul>
+		        </div>
+		        <!-- Skills eof-->
+
+		        <!-- Resource-->
+		        <div class="col-md-9">
+		            <input name="resource" type="text" class="form-control" data-ng-model="resource.url" id="resourceUrl" placeholder="Youtube.com:code::">
+		            <input name="resourceDescription" type="text" class="form-control" data-ng-model="resource.description" id="resourceDescription" placeholder="Descripcion Recurso">
+		        </div>
+		        <!-- Resource eof -->
+
 				<div class="form-group">
 					<input type="submit" class="btn btn-default">
 				</div>
@@ -27,3 +64,17 @@
 		</form>
 	</div>
 </section>
+
+<script>
+	
+// function arTypeCtrl($scope) {
+//   $scope.colors = [
+//     {name:'black', shade:'dark'},
+//     {name:'white', shade:'light'},
+//     {name:'red', shade:'dark'},
+//     {name:'blue', shade:'dark'},
+//     {name:'yellow', shade:'light'}
+//   ];
+//   $scope.myColor = $scope.colors[2]; // red
+console.log("create article View >>");
+</script>

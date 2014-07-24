@@ -1,0 +1,45 @@
+<section data-ng-controller="LearnarticleController" data-ng-init="findOne()">
+
+	<div class="articleText">
+
+		<div class="page-header" ng-animate=" 'animate' ">
+			<h3 data-ng-bind="article.title"></h3>
+			<span ng-show="vibrate" class="statusIconOk glyphicon {{statusIcon}}" > </span>
+			<p>{{article.status}}</p>
+		</div>
+
+	    <div class="readerContainer" data-ng-init="fastReader()">
+	    	
+	    	<div class="readerBox">
+				<div id="reader" class="reader">
+			    	<div id="word" class="word"></div>
+				</div>
+	    	</div>
+	    	
+	    	<progressbar value="readProgress" ></progressbar>			
+			<br>
+			
+			<ul class="list-inline speedControl">
+				<li> <button class="glyphicon glyphicon-minus speedLess" ng-mousedown="speedLess()" ></button> </li>
+				<li> <input type="range" id="wpm" class="ranger" name="speed" min="240" max="760" value="240" step="20"> </li>
+				<li> <button  class="glyphicon glyphicon-plus speedMore" ng-mousedown="speedMore()"></button> </li>
+			</ul>
+			
+			<p class="sliderValue">{{sliderValue}}</p>
+			<ul class="readerControllButtons">
+				<li class="glyphicon glyphicon-fast-backward" id="start"></li>
+				<li class="glyphicon glyphicon-play" id="play" ng-show="!isPlaying"> </li>
+				<li class="glyphicon glyphicon-pause" id="pause" ng-show="isPlaying"> </li>
+				<li class="glyphicon">&nbsp;</li>
+			</ul>	
+		</div>
+		
+		<div class="page-content" ng-show="article.content == texto" class="extras">
+			<p id="comment" class="content" data-ng-bind="article.content" ></p>
+		</div>
+
+	</div>
+
+</section>
+
+

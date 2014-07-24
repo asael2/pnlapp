@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/mean-dev',
+    db: 'mongodb://localhost/vivebien-dev',
     app: {
-        title: 'MEAN.JS - Development Environment'
+        title: 'vivebien - Development Environment'
     },
     facebook: {
         clientID: process.env.FACEBOOK_ID || '794350477275957',

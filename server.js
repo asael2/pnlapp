@@ -27,4 +27,4 @@ app.listen(config.port);
 exports = module.exports = app;
 
 // Logging initialization
-console.log('PNLAPP iniciada en puerto: ' + config.port);
+console.log('APPNL application started on port ' + config.port);
