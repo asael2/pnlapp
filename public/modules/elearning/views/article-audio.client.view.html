@@ -1,0 +1,28 @@
+<section data-ng-controller="ArticleAudioController" data-ng-init="findOne()">
+
+	<div class="articleVideo">
+
+		<div class="page-header">
+			<h3 data-ng-bind="article.title"></h3>
+		</div>
+		
+		<div class="page-content">
+		<button ng-audio='{{article.resource.url}}'>I'll load a sound and then play it.</button>
+			<p> Titulo Link: {{article.resource.description}}</p>
+				
+			<audio controls="controls">
+			    <source src="{{article.resource.url}}" type="audio/mp3" /> 
+			</audio>    
+			
+		</div>
+
+		<div class="page-content" ng-show="article.content == video" class="extras">
+			<p id="comment" class="content" data-ng-bind="article.content" ></p>
+			<p> Titulo Link: {{article.resource.description}}</p>
+		    <p> Recurso Link: {{article.resource.url}}</p>
+		    <p> Status: {{article.status}}</p>
+		</div>
+
+	</div>
+
+</section>

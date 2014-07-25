@@ -1,19 +1,19 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/mean-dev',
+    db: 'mongodb://localhost/vivebien-dev',
     app: {
-        title: 'MEAN.JS - Development Environment'
+        title: 'vivebien - Development Environment'
     },
     facebook: {
         clientID: process.env.FACEBOOK_ID || '794350477275957',
         clientSecret: process.env.FACEBOOK_SECRET || 'de36e2331136602ef0abe0536c10b27b',
-        callbackURL: 'http://localhost:3000/#!/articles'
+        callbackURL: 'http://localhost:3000/auth/facebook/callback'
     },
     twitter: {
         clientID: process.env.TWITTER_KEY || 'D6HXtaVQWpQqH4sgJMCY3QZyi',
         clientSecret: process.env.TWITTER_SECRET || '0wdmvfMBDDBl7PjSNhPuTZ6W0r7nZ804eYxyEg4JPjuJ53nXKh',
-        callbackURL: 'http://localhost:3000/#!/articles'
+        callbackURL: 'http://localhost:3000/auth/twitter/callback'
     },
     google: {
         clientID: process.env.GOOGLE_ID || '778869874780-h26u137oscm4qq46iacud32avd072rnn.apps.googleusercontent.com',

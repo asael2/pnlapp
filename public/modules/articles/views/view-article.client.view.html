@@ -18,5 +18,27 @@
 			<span data-ng-bind="article.user.displayName"></span>
 		</em>
 	</small>
+    <p class="url">Tipo de Articulo : {{article.arType}}</p>
 	<p class="lead" data-ng-bind="article.content"></p>
+
+	<div class="extras">
+			
+		<div class="addedSection">
+	        <ul class="list-inline">
+	            <li>Amigos: {{article.skills.am}}</li>
+	            <li>Amor: {{article.skills.ar}}</li>
+	            <li>Cre.Personal. {{article.skills.cp}}</li>
+	            <li>Dinero: {{article.skills.di}}</li>
+	            <li>Entorno: {{article.skills.en}}</li>
+	            <li>Familia: {{article.skills.fa}}</li>
+	            <li>Ocio: {{article.skills.oc}}</li>
+	            <li>Salud: {{article.skills.sa}}</li>
+	            <li>Trabajo: {{article.skills.tr}}</li>
+	        </ul>
+	    </div>
+        <p class="description">Titulo Link: {{article.resource.description}}</p>
+        <p class="url">Recurso Link: {{article.resource.url}}</p>
+        <p class="url">Status: {{article.status}}</p>
+	</div>
+
 </section>

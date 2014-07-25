@@ -1,0 +1,13 @@
+
+.addArt2me{
+	font-size: 1.2em;
+}
+.animate-enter {
+   -webkit-transition: 2s linear all; /* Chrome */
+    transition: 2s linear all;
+    opacity: 0;
+}
+
+.animate-enter.animate-enter-active {
+    opacity: 1;
+}
