@@ -4,10 +4,12 @@ angular.module('articles').controller('LearnrouteController', ['$scope', '$state
     function($scope, $stateParams, $location, Authentication, Articles, Users) {
 
 
+        $scope.isHome = false;
+        $scope.$apply();
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
 
-        if (!$scope.user) $location.path('/');
+        !$scope.user ? $location.path('/') : $location.path('/learn');
 
         $scope.myUser = new Users($scope.user);
         $scope.misArticulos = [];
