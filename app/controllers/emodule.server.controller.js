@@ -6,7 +6,7 @@
 var mongoose = require('mongoose'),
     Emodule = mongoose.model('Emodule'),
     _ = require('lodash');
-console.log("Emodule:: " + Emodule);
+
 /**
  * Get the error message from error object
  */
@@ -17,7 +17,7 @@ var getErrorMessage = function(err) {
         switch (err.code) {
             case 11000:
             case 11001:
-                message = 'Article already exists';
+                message = 'Emodule already exists';
                 break;
             default:
                 message = 'Something went wrong';
@@ -32,11 +32,11 @@ var getErrorMessage = function(err) {
 };
 
 /**
- * Create a module
+ * Create a emodule
  */
 exports.create = function(req, res) {
     var emodule = new Emodule(req.body);
-    // article.user = req.user;
+    emodule.user = req.user;
 
     emodule.save(function(err) {
         if (err) {
@@ -50,29 +50,83 @@ exports.create = function(req, res) {
 };
 
 /**
- * Show the current Emodule server
+ * Show the current emodule
  */
 exports.read = function(req, res) {
-
+    res.jsonp(req.emodule);
 };
 
 /**
- * Update a Emodule server
+ * Update a emodule
  */
 exports.update = function(req, res) {
+    var emodule = req.emodule;
 
+    emodule = _.extend(emodule, req.body);
+
+    emodule.save(function(err) {
+        if (err) {
+            return res.send(400, {
+                message: getErrorMessage(err)
+            });
+        } else {
+            res.jsonp(emodule);
+        }
+    });
 };
 
 /**
- * Delete an Emodule server
+ * Delete an emodule
  */
 exports.delete = function(req, res) {
+    var emodule = req.emodule;
 
+    emodule.remove(function(err) {
+        if (err) {
+            return res.send(400, {
+                message: getErrorMessage(err)
+            });
+        } else {
+            res.jsonp(emodule);
+        }
+    });
 };
 
 /**
- * List of Emodule servers
+ * List of Emodules
  */
 exports.list = function(req, res) {
+    Emodule.find().sort('-created').populate('user', 'displayName').exec(function(err, emodules) {
+        if (err) {
+            return res.send(400, {
+                message: getErrorMessage(err)
+            });
+        } else {
+            res.jsonp(emodules);
+        }
+    });
+};
 
+/**
+ * Emodule middleware
+ */
+exports.emoduleByID = function(req, res, next, id) {
+    Emodule.findById(id).populate('user', 'displayName').exec(function(err, emodule) {
+        if (err) return next(err);
+        if (!emodule) return next(new Error('Failed to load emodule ' + id));
+        req.emodule = emodule;
+        next();
+    });
+};
+
+/**
+ * Emodule authorization middleware
+ */
+exports.hasAuthorization = function(req, res, next) {
+    if (req.emodule.user.id !== req.user.id) {
+        return res.send(403, {
+            message: 'User is not authorized'
+        });
+    }
+    next();
 };
