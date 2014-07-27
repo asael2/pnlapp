@@ -10,7 +10,6 @@ var mongoose = require('mongoose'),
  * Emodule Schema
  */
 var EmoduleSchema = new Schema({
-
     name: {
         type: String,
         trim: true,
