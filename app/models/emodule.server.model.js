@@ -38,6 +38,10 @@ var EmoduleSchema = new Schema({
     articlesArray: {
         type: Array,
         default: ''
+    },
+    descripcion: {
+        type: String,
+        default: ''
     }
 
 });

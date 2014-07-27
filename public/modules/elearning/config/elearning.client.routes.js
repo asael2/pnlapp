@@ -5,6 +5,14 @@ angular.module('elearning').config(['$stateProvider',
     function($stateProvider) {
         // Elearning state routing
         $stateProvider.
+		state('emodule-create', {
+			url: '/emodule-create',
+			templateUrl: 'modules/elearning/views/emodule-create.client.view.html'
+		}).
+		state('board', {
+			url: '/board',
+			templateUrl: 'modules/elearning/views/board.client.view.html'
+		}).
 		state('modules-view', {
 			url: '/emodulos',
 			templateUrl: 'modules/elearning/views/modules-view.client.view.html'
