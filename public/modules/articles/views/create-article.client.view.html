@@ -4,7 +4,14 @@
 	</div>
 	<div class="col-md-12">
 		<form class="form-horizontal" data-ng-submit="create()" novalidate>
+			
 			<fieldset>
+				<div class="form-group">
+					<label class="control-label" for="emodule">Modulo</label>
+					<select name="emodule" id="emoduleSel" app-ng-init="moduleSelect">
+						<option ng-repeat="emodule in emodules" value="emodule._id">{{emodule.title}}</option>
+					</select>
+				</div>
 				<div class="form-group">
 					<label class="control-label" for="title">Tiulo</label>
 					<div class="controls">
@@ -61,6 +68,7 @@
 					<strong data-ng-bind="error"></strong>
 				</div>
 			</fieldset>
+
 		</form>
 	</div>
 </section>

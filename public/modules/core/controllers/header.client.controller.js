@@ -6,8 +6,8 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
         $scope.isCollapsed = false;
 
         $scope.menu = Menus.getMenu('topbar');
-
-        $scope.isHome = $location.path() === "/";
+        // $scope.isHome = {};
+        // $scope.isHome.estatus = $location.path() === "/";
 
         $scope.toggleCollapsibleMenu = function() {
             $scope.isCollapsed = !$scope.isCollapsed;

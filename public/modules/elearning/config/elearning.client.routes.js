@@ -5,6 +5,10 @@ angular.module('elearning').config(['$stateProvider',
     function($stateProvider) {
         // Elearning state routing
         $stateProvider.
+		state('modules-view', {
+			url: '/emodulos',
+			templateUrl: 'modules/elearning/views/modules-view.client.view.html'
+		}).
         state('audio', {
             url: '/audio/:articleId',
             templateUrl: 'modules/elearning/views/article-audio.client.view.html'

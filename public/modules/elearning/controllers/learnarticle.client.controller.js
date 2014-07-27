@@ -13,7 +13,9 @@ angular.module('elearning').controller('LearnarticleController', ['$rootScope', 
         $scope.vibrate = function(vibrate, wait, vibrate2) {
             navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
             if (navigator.vibrate) {
-                navigator.vibrate([vibrate, wait, vibrate2]);
+                // Vibrate pattern
+                // navigator.vibrate([vibrate, wait, vibrate2]);
+                navigator.vibrate([vibrate2]);
             }
         }
 
