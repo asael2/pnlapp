@@ -19,9 +19,9 @@ angular.module('emodule').controller('EmoduleCreateController', ['$scope', '$sta
                 articlesArray: this.articlesArray,
                 descripcion: this.descripcion
             });
-            // console.log(Emodules)
             emodule.$save(function(response) {
-                $location.path('emodules/' + response._id);
+                // $location.path('emodules/' + response._id);
+                $location.path('/emodules');
             }, function(errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
@@ -34,5 +34,31 @@ angular.module('emodule').controller('EmoduleCreateController', ['$scope', '$sta
             this.articlesArray = '';
             this.descripcion = '';
         };
+        $scope.remove = function(emodule) {
+            if (emodule) {
+                emodule.$remove();
+
+                for (var i in $scope.emodules) {
+                    if ($scope.emodules[i] === emodule) {
+                        $scope.emodules.splice(i, 1);
+                    }
+                }
+            } else {
+                $scope.emodule.$remove(function() {
+                    $location.path('emodules');
+                });
+            }
+        };
+
+        $scope.update = function() {
+            var emodule = $scope.emodule;
+
+            emodule.$update(function() {
+                $location.path('emodules/' + emodule._id);
+            }, function(errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+        };
+
     }
 ]);

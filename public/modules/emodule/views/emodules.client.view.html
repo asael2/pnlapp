@@ -1,3 +1,20 @@
-<section data-ng-controller="EmodulesController">
-	This is the Emodules view
+<section data-ng-controller="EmodulesController" data-ng-init="find()">
+	<div class="page-header">
+		<h1>Mis Modulos</h1>
+	</div>
+	<div class="list-group">
+
+		<div data-ng-repeat="emodule in emodules" class="list-group-item animate" href="#" >
+
+			<h4 class="list-group-item-heading" >{{emodule.name}}</h4>
+		
+			<!-- <button data-ng-click="remArt2me($index, article, $event)" class="glyphicon glyphicon-minus remArt2me" ></button> -->
+		
+			<p> {{emodule.descripcion}} </p>
+		<div>
+
+	</div>
+	<!-- <div class="alert alert-warning text-center" data-ng-if="articles.$resolved && !articles.length">
+		No articles yet, why don't you <a href="/#!/emodule/create">create one</a>?
+	</div> -->
 </section>
