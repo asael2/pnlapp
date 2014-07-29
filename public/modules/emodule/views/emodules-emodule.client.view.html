@@ -5,7 +5,7 @@
 		<a class="btn btn-primary" href="/#!/emodule/{{emodule._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
+		<a class="btn btn-primary" data-ng-click="remove(emodule);">
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
 	<div class="page-header">
@@ -17,5 +17,5 @@
 	</div>
 	<br>
 	<p >{{emodule.descripcion}}</p>
-
+<p>Modulos a los que pertenece: {{emodule.articlesArray}} </p>
 </section>

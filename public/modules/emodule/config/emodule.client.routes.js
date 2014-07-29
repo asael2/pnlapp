@@ -11,7 +11,7 @@ angular.module('emodule').config(['$stateProvider',
         }).
         state('emodules-list', {
             url: '/emodules',
-            templateUrl: 'modules/emodule/views/emodules.client.view.html'
+            templateUrl: 'modules/emodule/views/emodules-list.client.view.html'
         }).
         state('emodule-create', {
             url: '/emodule-create',

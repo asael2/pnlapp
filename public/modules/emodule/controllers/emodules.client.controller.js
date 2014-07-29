@@ -13,21 +13,21 @@ angular.module('emodule').controller('EmodulesController', ['$scope', 'Emodules'
             });
         };
 
-        // $scope.remove = function(emodule) {
-        //     if (emodule) {
-        //         emodule.$remove();
+        $scope.remove = function(emodule) {
+            if (emodule) {
+                emodule.$remove();
 
-        //         for (var i in $scope.emodules) {
-        //             if ($scope.emodules[i] === emodule) {
-        //                 $scope.emodules.splice(i, 1);
-        //             }
-        //         }
-        //     } else {
-        //         $scope.emodule.$remove(function() {
-        //             $location.path('emodules');
-        //         });
-        //     }
-        // };
+                for (var i in $scope.emodules) {
+                    if ($scope.emodules[i] === emodule) {
+                        $scope.emodules.splice(i, 1);
+                    }
+                }
+            } else {
+                $scope.emodule.$remove(function() {
+                    $location.path('/emodules');
+                });
+            }
+        };
 
         // $scope.update = function() {
         //     var emodule = $scope.emodule;
@@ -57,7 +57,7 @@ angular.module('emodule').controller('EmodulesController', ['$scope', 'Emodules'
                 descripcion: this.descripcion
             });
             emodule.$save(function(response) {
-                $location.path('emodule/' + response._id);
+                $location.path('emodules/' + response._id);
             }, function(errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
@@ -67,7 +67,7 @@ angular.module('emodule').controller('EmodulesController', ['$scope', 'Emodules'
             this.child = '';
             this.status = '';
             this.categories = '';
-            this.articlesArray = '';
+            this.articlesArray = emodule.articlesArray;
             this.descripcion = '';
         };
 

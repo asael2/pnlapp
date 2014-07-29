@@ -2,12 +2,25 @@
 	
 	<div class="page-header"><h1>Todos los Modulos</h1></div>
 
-	<a data-ng-repeat="emodule in emodules" class="list-group-item" href="/#!/emodules/{{emodule._id}}" >
+	
+
+	<div class="alert alert-warning text-center" data-ng-if="emodules.$resolved && !emodules.length">No hay Modulos</div>
+
+
+
+    <div class="row">
+
+      <div class="col-xs-8 col-sm-6" data-ng-repeat="emodule in emodules">
+
+       <a  class="list-group-item" href="/#!/emodules/{{emodule._id}}" >
 		<h4 class="list-group-item-heading"> {{emodule.name}}</h4>
 		<!-- <a class="glyphicon glyphicon-edit" ="/#!/emodule/{{emodule._id}}/edit">Editar</a> -->
 		<p> {{emodule.descripcion}} </p>
-	</a>
+		</a>
+      </div>
 
-	<div class="alert alert-warning text-center" data-ng-if="emodules.$resolved && !emodules.length">No hay Modulos</div>
+
+
+    </div>
 
 </section>
