@@ -12,11 +12,13 @@
 
       <div class="col-xs-8 col-sm-6" data-ng-repeat="emodule in emodules">
 
-       <a  class="list-group-item" href="/#!/emodules/{{emodule._id}}" >
-		<h4 class="list-group-item-heading"> {{emodule.name}}</h4>
-		<!-- <a class="glyphicon glyphicon-edit" ="/#!/emodule/{{emodule._id}}/edit">Editar</a> -->
-		<p> {{emodule.descripcion}} </p>
+       	<a class="list-group-item" href="/#!/emodules/{{emodule._id}}" >
+			<h4 class="list-group-item-heading"> {{emodule.name}}</h4>
+			<!-- <a class="glyphicon glyphicon-edit" ="/#!/emodule/{{emodule._id}}/edit">Editar</a> -->
+			<p> Descripcion: {{emodule.descripcion}} </p>
+			<!-- <p> Pertenece a: {{emodule.belongsToModule}} </p> -->
 		</a>
+
       </div>
 
 

@@ -14,19 +14,20 @@ angular.module('emodule').controller('EmodulesController', ['$scope', 'Emodules'
         };
 
         $scope.remove = function(emodule) {
-            if (emodule) {
-                emodule.$remove();
+            alert("borrar : " + emodule)
+            // if (emodule) {
+            //     emodule.$remove();
 
-                for (var i in $scope.emodules) {
-                    if ($scope.emodules[i] === emodule) {
-                        $scope.emodules.splice(i, 1);
-                    }
-                }
-            } else {
-                $scope.emodule.$remove(function() {
-                    $location.path('/emodules');
-                });
-            }
+            //     for (var i in $scope.emodules) {
+            //         if ($scope.emodules[i] === emodule) {
+            //             $scope.emodules.splice(i, 1);
+            //         }
+            //     }
+            // } else {
+            //     $scope.emodule.$remove(function() {
+            //         $location.path('/emodules');
+            //     });
+            // }
         };
 
         // $scope.update = function() {
@@ -67,7 +68,7 @@ angular.module('emodule').controller('EmodulesController', ['$scope', 'Emodules'
             this.child = '';
             this.status = '';
             this.categories = '';
-            this.articlesArray = emodule.articlesArray;
+            this.articlesArray = '';
             this.descripcion = '';
         };
 
