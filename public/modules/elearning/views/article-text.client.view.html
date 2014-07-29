@@ -1,8 +1,8 @@
-<section data-ng-controller="LearnarticleController" data-ng-init="findOne()">
+<section data-ng-controller="ArticleTextController" data-ng-init="findOne()">
 
 	<div class="articleText">
 
-		<div class="page-header" ng-animate=" 'animate' ">
+		<div class="page-header">
 			<h3 data-ng-bind="article.title"></h3>
 			<span ng-show="vibrate" class="statusIconOk glyphicon {{statusIcon}}" > </span>
 			<p>{{article.status}}</p>

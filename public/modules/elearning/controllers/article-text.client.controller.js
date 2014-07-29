@@ -1,5 +1,5 @@
 'use strict';
-angular.module('elearning').controller('LearnarticleController', ['$rootScope', '$scope', '$stateParams', '$location', 'Authentication', 'Articles',
+angular.module('elearning').controller('ArticleTextController', ['$rootScope', '$scope', '$stateParams', '$location', 'Authentication', 'Articles',
     function($rootScope, $scope, $stateParams, $location, Authentication, Articles) {
         $scope.authentication = Authentication;
 
