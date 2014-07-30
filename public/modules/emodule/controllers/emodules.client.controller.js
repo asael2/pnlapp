@@ -7,30 +7,41 @@ angular.module('emodule').controller('EmodulesController', ['$scope', 'Emodules'
             $scope.emodules = Emodules.query();
             $scope.articles = Articles.query();
 
-            $scope.getChildArticle = function(emoduleId, articleId) {
+            $scope.getChildArticle = function(emodule, article) {
 
                 var emoduleId = emoduleId;
-                var articleId = articleId;
+                var article = article;
 
-                console.log("Valores: " + emoduleId + "__" + articleId + " :: ");
-
-                var checkArt = Articles.get({
-                    articleId: articleId
-                });
-
-                if (emoduleId == articleId) {
-                    alert("hey")
-
+                console.log("emodule: " + emodule._id + " :: " + article.belongsToModule.length);
+                for (var i = 0; article.belongsToModule.length; i++) {
+                    console.log(article[i])
                 }
 
-                // console.log("emoduleId es:" + checkArt);
-                // var belongs2 = $scope.article._id;
-                // return articleId == belongs2
-
-                //  $scope.emodule = Emodules.get({
-                //     emoduleId: $stateParams.emoduleId
-                // });
             }
+            // angular.forEach(article.belongsToModule, index, function() {
+            //     console.log(index);
+            // });
+            // var checkArt = function() {
+            //     Articles.articleByID(articleId);
+
+            // }
+            // console.log(checkArt.toJson());
+
+
+
+
+            // if (emoduleId == articleId) {
+            //     alert("hey")
+
+            // }
+
+            // var belongs2 = $scope.article._id;
+            // return articleId == belongs2
+
+            //  $scope.emodule = Emodules.get({
+            //     emoduleId: $stateParams.emoduleId
+            // });
+            // }
         };
 
         $scope.findOne = function() {
