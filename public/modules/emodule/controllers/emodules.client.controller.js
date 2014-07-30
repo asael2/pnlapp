@@ -1,10 +1,36 @@
 'use strict';
 
-angular.module('emodule').controller('EmodulesController', ['$scope', 'Emodules', '$stateParams',
-    function($scope, Emodules, $stateParams) {
+angular.module('emodule').controller('EmodulesController', ['$scope', 'Emodules', '$stateParams', 'Articles',
+    function($scope, Emodules, $stateParams, Articles) {
 
         $scope.findAll = function() {
             $scope.emodules = Emodules.query();
+            $scope.articles = Articles.query();
+
+            $scope.getChildArticle = function(emoduleId, articleId) {
+
+                var emoduleId = emoduleId;
+                var articleId = articleId;
+
+                console.log("Valores: " + emoduleId + "__" + articleId + " :: ");
+
+                var checkArt = Articles.get({
+                    articleId: articleId
+                });
+
+                if (emoduleId == articleId) {
+                    alert("hey")
+
+                }
+
+                // console.log("emoduleId es:" + checkArt);
+                // var belongs2 = $scope.article._id;
+                // return articleId == belongs2
+
+                //  $scope.emodule = Emodules.get({
+                //     emoduleId: $stateParams.emoduleId
+                // });
+            }
         };
 
         $scope.findOne = function() {
@@ -13,22 +39,22 @@ angular.module('emodule').controller('EmodulesController', ['$scope', 'Emodules'
             });
         };
 
-        $scope.remove = function(emodule) {
-            alert("borrar : " + emodule)
-            // if (emodule) {
-            //     emodule.$remove();
+        // $scope.remove = function(emodule) {
+        //     alert("borrar : " + emodule)
+        //     // if (emodule) {
+        //     //     emodule.$remove();
 
-            //     for (var i in $scope.emodules) {
-            //         if ($scope.emodules[i] === emodule) {
-            //             $scope.emodules.splice(i, 1);
-            //         }
-            //     }
-            // } else {
-            //     $scope.emodule.$remove(function() {
-            //         $location.path('/emodules');
-            //     });
-            // }
-        };
+        //     //     for (var i in $scope.emodules) {
+        //     //         if ($scope.emodules[i] === emodule) {
+        //     //             $scope.emodules.splice(i, 1);
+        //     //         }
+        //     //     }
+        //     // } else {
+        //     //     $scope.emodule.$remove(function() {
+        //     //         $location.path('/emodules');
+        //     //     });
+        //     // }
+        // };
 
         // $scope.update = function() {
         //     var emodule = $scope.emodule;
@@ -47,7 +73,16 @@ angular.module('emodule').controller('EmodulesController', ['$scope', 'Emodules'
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
 
+
+        // $scope.articles = Articles.query();
+
+        // for (var article in $scope.articles(data)) {
+        //     console.log(data);
+
         $scope.create = function() {
+
+
+
             var emodule = new Emodules({
                 name: this.name,
                 parent: this.parent,

@@ -79,11 +79,19 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
         };
 
         $scope.selectionsChanged = function(elementId) {
-            if (inArray(elementId, $scope.belongsToModule)) {
-                console.log("ya existe en belongsToModule : " + $scope.belongsToModule)
-            } else {
-                $scope.belongsToModule.push(elementId);
-            }
+
+
+            $scope.belongsToModule = []
+            $scope.belongsToModule.push(elementId);
+            console.log("belongsToModule : " + $scope.belongsToModule);
+            // if (!inArray(elementId, $scope.belongsToModule)) {
+            //     $scope.belongsToModule.push(elementId);
+
+            //     console.log("Agregada a belongsToModule : " + $scope.belongsToModule);
+            //     // $scope.belongsToModule.push(elementId);
+            // } else {
+            //     $scope.belongsToModule.slice(elementId);
+            // }
 
         };
 

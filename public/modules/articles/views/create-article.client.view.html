@@ -22,7 +22,7 @@
 					<label class="control-label" for="emodule">Modulos</label>
 					<select multiple name="emodule" id="emoduleSel" ng-model="selectedValues"  >
 
-						<option ng-repeat="emodule in emodules" ng-click="selectionsChanged(emodule._id)">{{emodule.name}}</option>
+						<option ng-repeat="emodule in emodules" ng-click="selectionsChanged(emodule._id)" ng-selected="">{{emodule.name}}</option>
 
 					</select>
 				</div>

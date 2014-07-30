@@ -14,7 +14,7 @@ angular.module('articles').run(['Menus',
 
         Menus.addSubMenuItem('topbar', 'articles', ' - modulos -', ' ', 'menuItemUIRoute', true, ['admin']);
 
-        Menus.addSubMenuItem('topbar', 'articles', 'Todos los Modulos', 'emodules', 'menuItemUIRoute', true, ['admin']);
+        Menus.addSubMenuItem('topbar', 'articles', 'Todos los Modulos', 'emodules', 'menuItemUIRoute', true, ['user']);
 
         Menus.addSubMenuItem('topbar', 'articles', 'Agregar Modulo', 'emodule-create', 'menuItemUIRoute', true, ['admin']);
     }

@@ -16,13 +16,18 @@
 			<h4 class="list-group-item-heading"> {{emodule.name}}</h4>
 			<!-- <a class="glyphicon glyphicon-edit" ="/#!/emodule/{{emodule._id}}/edit">Editar</a> -->
 			<p> Descripcion: {{emodule.descripcion}} </p>
-			<!-- <p> Pertenece a: {{emodule.belongsToModule}} </p> -->
+			<br>
+			
+			<span> 
+			ModuleID: {{emodule._id}}
+			</span>
 		</a>
+
+		<span data-ng-repeat="article in articles" data-ng-init="getChildArticle(emodule._id, article._id)">Articulo: {{article.title}} </span>
 
       </div>
 
-
-
+<!-- Pertenece a: <a href="#" data-ng-repeat="article in articles | filter:getChildArticles(article)" >{{article.belongsToModule}}</a>  -->
     </div>
 
 </section>
