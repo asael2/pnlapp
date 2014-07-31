@@ -2,32 +2,21 @@
 	
 	<div class="page-header"><h1>Todos los Modulos</h1></div>
 
-	
-
 	<div class="alert alert-warning text-center" data-ng-if="emodules.$resolved && !emodules.length">No hay Modulos</div>
-
-
 
     <div class="row">
 
       <div class="col-xs-8 col-sm-6" data-ng-repeat="emodule in emodules">
 
-       	<a class="list-group-item" href="/#!/emodules/{{emodule._id}}" >
-			<h4 class="list-group-item-heading"> {{emodule.name}}</h4>
-			<!-- <a class="glyphicon glyphicon-edit" ="/#!/emodule/{{emodule._id}}/edit">Editar</a> -->
-			<p> Descripcion: {{emodule.descripcion}} </p>
-			<br>
-			
-			<span> 
-			ModuleID: {{emodule._id}}
-			</span>
-		</a>
-
-		<span data-ng-repeat="article in articles" data-ng-init="getChildArticle(emodule, article)">Articulo: {{article.title}} </span>
-
+       	<a class="list-group-item" href="/#!/emodules/{{emodule._id}}" ><h4 class="list-group-item-heading"> {{emodule.name}}</h4></a>
+		<ul>
+			<li data-ng-repeat=" article in articles | filter:emodule._id " >
+				<a href="/#!/{{article.arType}}/{{article._id}}">{{article.title}} </a>
+			</li>
+		</ul>
+		
       </div>
 
-<!-- Pertenece a: <a href="#" data-ng-repeat="article in articles | filter:getChildArticles(article)" >{{article.belongsToModule}}</a>  -->
     </div>
 
 </section>
