@@ -4,7 +4,7 @@
 angular.module('articles').run(['Menus',
     function(Menus) {
         // Set top bar menu items
-        Menus.addMenuItem('topbar', 'Articulos', 'articles', 'dropdown', '/articles(/create)?');
+        Menus.addMenuItem('topbar', 'Opciones', 'articles', 'dropdown', '/articles(/create)?');
         Menus.addSubMenuItem('topbar', 'articles', 'Mis Articulos', 'learn');
         Menus.addSubMenuItem('topbar', 'articles', 'Todos los Articulos', 'articles');
 

@@ -12,6 +12,8 @@ angular.module('emodule').controller('EmodulesController', ['$scope', 'Emodules'
         //         emoduleId: $stateParams.emoduleId
         //     });
         // };
+
+
     }
 ]).controller('EmoduleCreateController', ['$scope', '$stateParams', '$location', 'Authentication', 'Articles', 'Users', '$http', 'Emodules',
     function($scope, $stateParams, $location, Authentication, Articles, Users, $http, Emodules) {
