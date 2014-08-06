@@ -116,6 +116,9 @@ var UserSchema = new Schema({
     },
     userArticles: {
         type: Array
+    },
+    userModules: {
+        type: Array
     }
 });
 
