@@ -11,3 +11,15 @@
 .animate-enter.animate-enter-active {
     opacity: 1;
 }
+
+
+.remArt2me, .addArt2me {
+	border: 1px solid black;
+	display: block;
+	width: 3em;
+	height: 3em;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	background: white;
+}
