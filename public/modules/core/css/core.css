@@ -9,6 +9,23 @@
   src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url(http://themes.googleusercontent.com/static/fonts/robotocondensed/v9/mg0cGfGRUERshzBlvqxeAHmtOlNhzYuCHuWdbmWr-YuglnMp3_3A8V8Ai8YosRtX.woff) format('woff');
 }
 
+@media (min-width: 768px) {
+  .container {
+    /* width: 750px; */
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+
 body{
     background: url(../img/brand/bg-diagpatt.png);
     color: #DFC6A8;

@@ -1,0 +1,30 @@
+<section data-ng-controller="EmodulesController" data-ng-init="findAll()">
+	
+	<div class="page-header"><h1>Modulos</h1></div>
+
+	<div class="alert alert-warning text-center" data-ng-if="emodules.$resolved && !emodules.length">No hay Modulos</div>
+
+    <div class="row">
+		<accordion close-others="true">
+			
+			<br>
+			<div class="col-12" data-ng-repeat="emodule in emodules">
+			
+			<!-- <a class="list-group-item" href="/#!/emodules/{{emodule._id}}" ><h4 class="list-group-item-heading"> {{emodule.name}}</h4></a> -->	
+    			<br>
+    			    			
+    			<accordion-group heading="{{emodule.name}}" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+      				
+      				<ul>
+						<li data-ng-repeat=" article in articles | filter:emodule._id " ><a href="/#!/{{article.arType}}/{{article._id}}">{{article.title}} </a></li>
+					</ul>
+				<button class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Tomar Prueba</button>
+
+				</accordion-group>
+
+			</div>
+		</accordion>
+
+    </div>
+
+</section>

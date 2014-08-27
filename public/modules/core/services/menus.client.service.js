@@ -6,7 +6,7 @@ angular.module('core').service('Menus', [
     function() {
         // Define a set of default roles
         this.defaultRoles = ['user'];
-
+        this.admintRoles = ['user', 'admin'];
         // Define the menus object
         this.menus = {};
 
@@ -17,7 +17,6 @@ angular.module('core').service('Menus', [
                     for (var roleIndex in this.roles) {
                         if (this.roles[roleIndex] === user.roles[userRoleIndex]) {
                             return true;
-                            console.log("Mi usuario = " + user);
                         }
                     }
                 }

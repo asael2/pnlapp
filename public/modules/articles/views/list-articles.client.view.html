@@ -6,7 +6,7 @@
 	<div class="list-group">
 
 		<a data-ng-controller="MyArticlesController" data-ng-repeat="article in articles | filter:filterAlreadyAdded" class="list-group-item">
-			<button data-ng-click="addArt2me($index, article)" class="glyphicon glyphicon-plus addArt2me" ></button>
+			<button data-ng-click="addArt2me($index, article)" class="glyphicon glyphicon-heart-empty addArt2me" ></button>
 			<h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
 			<p> {{article.content | limitTo:140}} </p>
 		</a>

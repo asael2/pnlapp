@@ -5,7 +5,7 @@ angular.module('elearning').config(['$stateProvider',
     function($stateProvider) {
         // Elearning state routing
         $stateProvider.
-        state('audio', {
+        state('article-audio', {
             url: '/audio/:articleId',
             templateUrl: 'modules/elearning/views/article-audio.client.view.html'
         }).
@@ -13,9 +13,9 @@ angular.module('elearning').config(['$stateProvider',
             url: '/video/:articleId',
             templateUrl: 'modules/elearning/views/article-video.client.view.html'
         }).
-        state('learnarticle', {
+        state('article-text', {
             url: '/texto/:articleId',
-            templateUrl: 'modules/elearning/views/learnarticle.client.view.html'
+            templateUrl: 'modules/elearning/views/article-text.client.view.html'
         }).
         state('learnroute', {
             url: '/learn',

@@ -1,43 +1,43 @@
-<div class="container" data-ng-controller="HeaderController">
-	{{isHome}}
+<div class="container navbar-inverse" data-ng-controller="HeaderController" ng-hide="isHome">
+	
 	<div class="navbar-header">
-
 		<button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
 			<span class="sr-only">Toggle navigation</span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
+    	<a class="navbar-brand" href="/">Practicante PNL</a> 
+    </div>
 
-		<a href="/#!/" class="navbar-brand">ViveBien</a>
-
-	</div>
 
 	<nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
+
 		<!-- Articles menu -->
 		<ul class="nav navbar-nav" data-ng-if='menu.shouldRender(authentication.user);'>
-			<li data-ng-repeat="item in menu.items" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
-				<a ng-switch-when="dropdown" class="dropdown-toggle">
-					<span data-ng-bind="item.title"></span>
-					<b class="caret"></b>
-				</a>
+			
+			<li data-ng-repeat="item in menu.items" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}"  ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
+				<!-- Menu with submenues -->
+				<a ng-switch-when="dropdown" class="dropdown-toggle"><span data-ng-bind="item.title"></span><b class="caret"></b></a>
 				<ul ng-switch-when="dropdown" class="dropdown-menu">
 					<li data-ng-repeat="subitem in item.items" data-ng-if="subitem.shouldRender(authentication.user);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
 						<a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
 					</li>
 				</ul>
-				<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
+				<!-- Menu alone -->
+				<a ng-switch-default href="/#!/{{item.link}}" class="{{item.menuItemClass}}"> {{item.title}}</a>
 			</li>
+
 		</ul>
 
 		<!-- Authenticate menu -->
 		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
 			<li ui-route="/signup" ng-class="{active: $uiRoute}">
-				<a href="/#!/signup">Signup</a>
+				<a href="/#!/signup">Registrarse</a>
 			</li>
 			<li class="divider-vertical"></li>
 			<li ui-route="/signin" ng-class="{active: $uiRoute}">
-				<a href="/#!/signin">Signin</a>
+				<a href="/#!/signin">Ingresar</a>
 			</li>
 		</ul>
 		<!-- Own profile menu -->

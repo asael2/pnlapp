@@ -74,6 +74,10 @@ var ArticleSchema = new Schema({
     status: { //0 = unread, 1 = readed, 2 = in progress.
         type: Number,
         default: 0
+    },
+    belongsToModule: {
+        type: Array,
+        default: ''
     }
 });
 

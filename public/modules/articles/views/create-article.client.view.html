@@ -4,7 +4,29 @@
 	</div>
 	<div class="col-md-12">
 		<form class="form-horizontal" data-ng-submit="create()" novalidate>
+			
 			<fieldset>
+				
+
+				<!-- ArtType -->
+				<div class="form-group" >
+			        <label>Tipo de articulo: </label>
+			        <br>
+					<label> <input type="radio" name="articleType" data-ng-model="arType" value="audio"> Audio </label>
+			    	<label> <input type="radio" name="articleType" data-ng-model="arType" value="texto"  checked="true"> Texto</label>
+			        <label> <input type="radio" name="articleType" data-ng-model="arType" value="video"> Video</label>
+				</div>
+
+				<div class="form-group">
+									
+					<label class="control-label" for="emodule">Modulos</label>
+					<select multiple name="emodule" id="emoduleSel" ng-model="selectedValues"  >
+
+						<option ng-repeat="emodule in emodules" ng-click="selectionsChanged(emodule._id)" ng-selected="">{{emodule.name}}</option>
+
+					</select>
+				</div>
+
 				<div class="form-group">
 					<label class="control-label" for="title">Tiulo</label>
 					<div class="controls">
@@ -18,18 +40,23 @@
 						<textarea data-ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Contenido"></textarea>
 					</div>
 				</div>
-				
-				<!-- ArtType -->
-				<div class="form-group" >
-			        <label>Tipo de articulo: </label>
-			        <br>
-					<label> <input type="radio" name="articleType" data-ng-model="arType" value="audio"> Audio </label>
-			    	<label> <input type="radio" name="articleType" data-ng-model="arType" value="texto" checked="true"> Texto</label>
-			        <label> <input type="radio" name="articleType" data-ng-model="arType" value="video"> Video</label>
-				</div>
+
+				<!-- Resource-->
+		        <div class="col-md-9" ng-show="arType === 'video' ">
+			     
+			        <div class="col-md-6">
+			            <input name="resource" type="text" class="form-control" data-ng-model="resource.url" id="resourceUrl" placeholder="Youtube.com:code::">
+			        </div>    
+			            <br>
+			        <div class="col-md-6">
+			            <input name="resourceDescription" type="text" class="form-control" data-ng-model="resource.description" id="resourceDescription" placeholder="Descripcion Recurso">
+			        </div>
+
+		        </div>
+		        <!-- Resource eof -->
 
 				<!-- Skills -->
-		        <div class="form-group">
+		        <div class="form-group col-md-9">
 		            
 		            <label mean-token="'create-skills'" class="col-md-3 control-label">Skills value</label>
 		                <ul class="list-inline">   
@@ -47,34 +74,17 @@
 		        </div>
 		        <!-- Skills eof-->
 
-		        <!-- Resource-->
-		        <div class="col-md-9">
-		            <input name="resource" type="text" class="form-control" data-ng-model="resource.url" id="resourceUrl" placeholder="Youtube.com:code::">
-		            <input name="resourceDescription" type="text" class="form-control" data-ng-model="resource.description" id="resourceDescription" placeholder="Descripcion Recurso">
-		        </div>
-		        <!-- Resource eof -->
+		        
 
-				<div class="form-group">
+				<div class="form-group col-md-9 text-center">
+				<br>
 					<input type="submit" class="btn btn-default">
 				</div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
 				</div>
 			</fieldset>
+
 		</form>
 	</div>
 </section>
-
-<script>
-	
-// function arTypeCtrl($scope) {
-//   $scope.colors = [
-//     {name:'black', shade:'dark'},
-//     {name:'white', shade:'light'},
-//     {name:'red', shade:'dark'},
-//     {name:'blue', shade:'dark'},
-//     {name:'yellow', shade:'light'}
-//   ];
-//   $scope.myColor = $scope.colors[2]; // red
-console.log("create article View >>");
-</script>
