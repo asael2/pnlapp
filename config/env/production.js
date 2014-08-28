@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://localhost/vivebien',
+	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://appnldbuser:qwertyuiop@ds033750.mongolab.com:33750/vbmongolab',
 	assets: {
 		lib: {
 			css: [

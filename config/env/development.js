@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/vivebien-dev',
+    // db: 'mongodb://localhost/vivebien-dev',
+    db: 'mongodb://appnldbuser:qwertyuiop@ds033750.mongolab.com:33750/vbmongolab',
     app: {
         title: 'vivebien - Development Environment'
     },
